@@ -1,0 +1,96 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    My bookstore
+{% endblock %}
+
+{% block main %}
+    <body>
+        <form action="{{ url_for('search') }}" method="post">
+            <fieldset>
+                <div id=search_loader class="loader"></div>
+                <div class="container" id=search-container>
+
+                    <h1 id=search-h1>Search database for the book you need!</h1>
+
+                    <div class="search-form">
+                        <input autofocus class="form-control" name="isbn" placeholder="ISBN" type="text"/>
+                    </div>
+                    <div class="search-form">
+                        <input class="form-control" name="title" placeholder="Title" type="text"/>
+                    </div>
+                    <div class="search-form">
+                        <input class="form-control" name="author" placeholder="Author" type="text"/>
+                    </div>
+                    <div class="search-form">
+                        <button class="searchbtn" type="submit">Search</button>
+                    </div>
+                    <h3 id="search-h3"> {{title}} </h3>
+                    <ul>
+                    {% for row in result %}
+                        <li class="search-element" id={{row.isbn}}>
+                            <b> {{ row.title }}</b>,
+                                {{ row.year }},
+                                {{ row.author }}
+                        </li>
+                    {% endfor %}
+                    </ul>
+                </div>
+            </fieldset>
+        </form>
+
+    <div id="search-bookpage" class="modal">
+        <div class="search-content">
+          <span onclick="document.getElementById('search-bookpage').style.display='none'" class="close" title="Close Modal">&times;</span>
+            <div class="container" id="search-bookpage-container">
+                <div class="loader"></div>
+                <h3 id="search-bookpage-h3" ></h1>
+                <div id="result1">
+                    <div class="row">
+                        <div class="col-md-6">
+
+                            <p>Author: <b id="author"></b></p>
+                            <p>Year: <b id="year"></b></p>
+                            <p>ISBN: <b id="isbn"></b></p>
+
+                        </div>
+
+                        <div class="col-md-6">
+
+                            <p> Goodreads.com rating: <b id=goodreadsrating></b></p>
+                                <p id=ourrating>Our ratinig: <b id=average_score></b><b> (</b><b id=review_count></b><b>  votes)</b>
+                            </p>
+
+                            <div id=ratingplace> Rate it:
+                                <b class="rating" id="stars">
+                                    <span id=5>☆</span>
+                                    <span id=4>☆</span>
+                                    <span id=3>☆</span>
+                                    <span id=2>☆</span>
+                                    <span id=1>☆</span>
+                                </b>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="reviews" id=reviewsarea>
+                    <div class="circle-loader">
+                        <div class="checkmark draw"></div>
+                    </div>
+                    <div class="my-review">
+                        <b>Your review: </b>
+                        <textarea id=reviewcontent name="myreview" placeholder="Write what you think about this book!" wrap="soft" maxlength="2000"></textarea>
+                        <input id=submit_review type="button" value="Submit the review">
+                    </div>
+                    <div class="all-reviews">
+                         <b>All reviews: </b>
+                         <div id=all_review_content></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </body>
+{% endblock %}

@@ -1,0 +1,38 @@
+Export env variables:
+DATABASE_URL=your_link
+GOODREADS_API_KEY=your_key
+
+------------------------------------------------------------
+DB:
+
+------------------------------------------------------------
+Table: books
+
+Column	Type	Comment
+id	integer Auto Increment [nextval('public."books_ID_seq"')]
+isbn	text
+title	text
+author	text
+year	integer
+review_count	integer [0]
+average_score	double precision [0]
+
+------------------------------------------------------------
+Table: reviews
+
+Column	Type	Comment
+id	integer Auto Increment [nextval('public.reviews_id_seq')]
+book_isbn	text
+user_id	integer
+rating	smallint [-1]
+review	text [EMPTY]
+
+------------------------------------------------------------
+
+Table: users
+
+Column	Type	Comment
+id	integer Auto Increment [nextval('public.users_id_seq')]
+email	text
+hash	text
+modifield	timestamp [CURRENT_TIMESTAMP]

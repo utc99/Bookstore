@@ -1,0 +1,13 @@
+.body {
+  background-color: #f9e9b9; }
+
+#character-list {
+  font-size: 18px; }
+  #character-list div p {
+    color: green; }
+  #character-list div ul {
+    color: red; }
+
+/*# sourceMappingURL=variables.css.map */
+
+/*# sourceMappingURL=variables.css.map */
