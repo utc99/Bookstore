@@ -1,6 +1,6 @@
 Flask
 Flask-Session
-psycopg2
+psycopg2-binary
 SQLAlchemy
 flask-api
 passlib
