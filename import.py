@@ -15,7 +15,7 @@ def main():
 
         db.execute("INSERT INTO books (isbn, title, author, year) VALUES (:isbn, :title, :author, :year)",
                     {"isbn": isbn, "title": title, "author": author, "year": year})
-        print(f"Book added: {title})
+        print(f"Book added: {title}")
     db.commit()
 
 if __name__ == "__main__":
