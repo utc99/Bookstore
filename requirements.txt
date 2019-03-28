@@ -5,3 +5,4 @@ SQLAlchemy
 flask-api
 passlib
 requests
+flask_jsglue
