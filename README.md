@@ -7,4 +7,4 @@ A Bookstore web app which lets a user to register and sign in. Signed in user ca
 get a goodreads.com rating. A User can rate a book and leave a review.
 
 The web is responsive, with loading animations, star rating.
-App also lets to use it's API from outside of the app
+App also lets to use it's API from outside of the app.
